@@ -50,10 +50,10 @@ const { dialog, onOpen, onClose } = useDialog();
     >
       <GamifyList :border="false" direction="horizon">
         <GamifyItem>
-          <GamifyButton @click="onClose">いいえ</GamifyButton>
+          <GamifyButton @click="onClose">ちがう！</GamifyButton>
         </GamifyItem>
         <GamifyItem>
-          <GamifyButton @click="onSubmit">はい</GamifyButton>
+          <GamifyButton @click="onSubmit">はい!</GamifyButton>
         </GamifyItem>
       </GamifyList>
     </GamifyDialog>
@@ -61,10 +61,15 @@ const { dialog, onOpen, onClose } = useDialog();
 </template>
 
 <style scoped>
+h1,
+p {
+  text-align: center;
+}
 form {
   border-radius: 0.5rem;
-  border: solid 4px #555;
+  border: solid 4px red;
   padding: 1.5rem 3rem;
+  margin: 1rem 20rem;
 }
 
 form > :not(:last-child) {

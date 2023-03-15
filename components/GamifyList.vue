@@ -24,7 +24,7 @@ defineProps({
 
 .gamify-list.border {
   border-radius: 0.5rem;
-  border: solid 4px #555;
+  border: solid 4px brown;
   padding: 1.5rem 3rem;
 }
 

@@ -11,9 +11,14 @@ const config = useRuntimeConfig();
 const streamToString = (stream) =>
   new Promise((resolve, reject) => {
     const chunks = [];
-    stream.on("data", (chunk) => chunks.push(chunk));
+    console.log(stream);
+    stream.on("data", (chunk) => {
+      console.log(chunk);
+      return chunks.push(chunk);
+    });
     stream.on("error", reject);
     stream.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
+    console.log(chunks);
   });
 
 /** トレーナーの一覧の取得 */
@@ -32,7 +37,8 @@ export const findTrainer = async (name) => {
       Key: `${name}.json`,
     })
   );
-  const trainer = JSON.parse(await streamToString(object.Body));
+  const result = await streamToString(object.Body);
+  const trainer = JSON.parse(result);
   return trainer;
 };
 
