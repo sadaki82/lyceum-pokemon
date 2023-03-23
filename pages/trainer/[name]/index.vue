@@ -14,27 +14,11 @@ const { data: trainer } = await useFetch(
       <span>{{ trainer.name }}</span>
     </div>
   </div>
-  <h2>てもちポケモン</h2>
-  <CatchButton :to="`/trainer/${trainer.name}/catch`"
-    >ポケモンをつかまえる</CatchButton
-  >
-  <GamifyList>
-    <GamifyItem v-for="pokemon in trainer.pokemons" :key="pokemon.id">
-      <img :src="pokemon.sprites.front_default" />
-      <span class="pokemon-name">{{ pokemon.nickname || pokemon.name }}</span>
-      <GamifyButton @click="onOpenNickname(pokemon)"
-        >ニックネームをつける</GamifyButton
-      >
-      <GamifyButton @click="onOpenRelease(pokemon)"
-        >はかせにおくる</GamifyButton
-      >
-    </GamifyItem>
-  </GamifyList>
 </template>
 
 <style scoped>
 .item > label {
-  display: block;
+  display: black;
   margin-bottom: 0.25rem;
 }
 
@@ -51,7 +35,7 @@ const { data: trainer } = await useFetch(
   margin-bottom: 1rem;
 }
 
-.trainer-info > img {
+.trainer-info {
   width: 3rem;
   height: 3rem;
 }
