@@ -34,11 +34,10 @@ export const findTrainer = async (name) => {
   const object = await s3Client.send(
     new GetObjectCommand({
       Bucket: config.bucketName,
-      Key: `${name}.json`,
+      key: `${name}.json`,
     })
   );
-  const result = await streamToString(object.Body);
-  const trainer = JSON.parse(result);
+  const trainer = JSON.parse(await streamToString(object.Body));
   return trainer;
 };
 
