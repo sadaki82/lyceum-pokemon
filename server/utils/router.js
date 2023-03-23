@@ -45,7 +45,9 @@ router.get("/trainer/:trainerName", async (req, res, next) => {
     const { trainerName } = req.params;
     const trainer = await findTrainer(trainerName);
     res.send(trainer);
-  } catch (err) {}
+  } catch (err) {
+    next(err);
+  }
 });
 
 /** トレーナーの更新 */
