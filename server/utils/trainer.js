@@ -54,7 +54,7 @@ export const upsertTrainer = async (name, trainer) => {
 };
 
 /** トレーナーの削除 */
-export const deleteTrainer = async (name) => {
+export const deletetrainer = async (name) => {
   const result = await s3Client.send(
     new DeleteObjectCommand({
       Bucket: config.bucketName,
